@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+  ~ Copyright (c) 2020 Dennis Lang (LanDen Labs) landenlabs@gmail.com
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the "Software"), to deal in the Software without restriction, including
+  ~ without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+  ~ following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  ~
+  ~ @author Dennis Lang
+  ~ @see http://LanDenLabs.com/
+  -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_border_btn1"
+    android:padding="6dp">
+
+    <RelativeLayout
+        android:background="@drawable/bg_gradient_dark_blue"
+        android:id="@+id/wid_top_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/wid_more"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:layout_alignTop="@+id/wid_title_holder"
+            android:layout_alignBottom="@+id/wid_title_holder"
+            android:layout_alignParentTop="true"
+            tools:src="@drawable/ic_more" />
+
+        <LinearLayout
+            android:id="@+id/wid_title_holder"
+            android:layout_toRightOf="@+id/wid_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipToPadding="true"
+            android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/wid_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/widget_list1_wid_title"
+            android:textSize="26dp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <TextView
+            android:textColor="#fff"
+            android:id="@+id/wid_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wid_title"
+            android:layout_toRightOf="@+id/wid_more"
+            android:autoSizeTextType="uniform"
+            android:text="@string/widget_list1_wid_date"
+            android:visibility="visible"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/wid_icon"
+            android:layout_width="64dp"
+            android:layout_height="0dp"
+            android:layout_alignTop="@+id/wid_title_holder"
+            android:layout_alignBottom="@+id/wid_title_holder"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_launcher_foreground" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/wid_value_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wid_top_holder"
+        android:clickable="true"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp">
+
+        <!--- Temperature -->
+        <TextView
+            android:id="@+id/wid_temp_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@string/widget_list1_wid_temp_lbl"
+            android:textColor="@color/temRed"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/wid_temp_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/wid_temp_lbl"
+            android:layout_toRightOf="@+id/wid_temp_lbl"
+            android:text="@string/widget_list1_wid_temp_val"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:text="123.45 °F" />
+
+        <ImageView
+            android:id="@+id/wid_temp_trend_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/wid_temp_val"
+            android:layout_toLeftOf="@+id/wid_temp_trend_val"
+            app:tint="@color/temRed"
+            tools:src="@drawable/scr_arrow_up" />
+
+        <TextView
+            android:id="@+id/wid_temp_trend_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/wid_temp_trend_img"
+            android:layout_alignParentRight="true"
+            android:text="@string/widget_list1_wid_temp_trend_val"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:text="-23.45/hr" />
+
+        <!--- Humidity -->
+        <TextView
+            android:id="@+id/wid_hum_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wid_temp_lbl"
+            android:layout_marginEnd="10dp"
+            android:text="@string/widget_list1_wid_hum_lbl"
+            android:textColor="@color/humBlue"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/wid_hum_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/wid_hum_lbl"
+            android:layout_toRightOf="@+id/wid_hum_lbl"
+            android:text="@string/widget_list1_wid_hum_val"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:text="123.45 %" />
+
+        <ImageView
+            android:id="@+id/wid_hum_trend_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/wid_hum_val"
+            android:layout_toLeftOf="@+id/wid_hum_trend_val"
+            app:tint="@color/humBlue"
+            tools:src="@drawable/scr_arrow_up" />
+
+        <TextView
+            android:id="@+id/wid_hum_trend_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/wid_hum_trend_img"
+            android:layout_alignParentRight="true"
+            android:text="@string/widget_list1_wid_hum_trend_val"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:text="+23.45/hr" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/wid_btn_holder"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/wid_value_holder"
+        android:orientation="horizontal"
+        tools:visibility="visible"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/widUpdBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_border_btn1"
+            android:gravity="center"
+            android:text="@string/widget_list1_widUpdBtn" />
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/widClrBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_border_btn1"
+            android:gravity="center"
+            android:text="@string/widget_list1_widClrBtn" />
+
+        <TextView
+            android:id="@+id/widInfoBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_border_btn1"
+            android:gravity="center"
+            android:minHeight="0dp"
+            android:text="@string/widget_list1_widInfoBtn" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/widget_list"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_below="@+id/wid_btn_holder"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/round_border_transparent2"
+        android:visibility="gone" />
+
+</RelativeLayout>

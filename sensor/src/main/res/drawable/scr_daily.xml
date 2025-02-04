@@ -1,0 +1,93 @@
+<!--
+  ~ Copyright (c) 2020 Dennis Lang (LanDen Labs) landenlabs@gmail.com
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the "Software"), to deal in the Software without restriction, including
+  ~ without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+  ~ following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  ~
+  ~ @author Dennis Lang
+  ~ @see http://LanDenLabs.com/
+  -->
+
+<vector android:height="24dp" android:viewportHeight="100.0"
+    android:viewportWidth="100.0" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#fff" android:strokeColor="#fff" android:pathData="
+M1,23
+L1,91
+A8,8 0 0,0 9,99
+L91,99
+A8,8 0 0,0 99,91
+L99,23
+A8,8 0 0,0 91,15
+
+L72,15
+L72,4
+A3,3 0 0,0 69,1
+L64,1
+A3,3 0 0,0 61,4
+L61,15
+
+L39,15
+L39,4
+A3,3 0 0,0 36,1
+L31,1
+A3,3 0 0,0 28,4  
+L28,15
+
+L9,15
+A8,8 0 0,0 1,23
+Z
+
+M14,30
+L86,30
+A5,5 0 0,1 91,35
+L91,87
+A5,5 0 0,1 86,92
+L14,92
+A5,5 0 0,1 9,87
+L9,35
+A5,5 0 0,1 14,30
+Z
+" />
+
+<path android:fillColor="#fff" android:pathData="
+M48,30
+L48,92
+L52,92
+L52,30
+Z
+                                   
+M26,30
+L26,92
+L30,92
+L30,30
+                                   
+M70,30
+L70,92
+L74,92
+L74,30
+Z
+
+M9,48
+L9,52
+L91,52
+L91,48
+Z
+                                 
+M9,70
+L9,74
+L91,74
+L91,70
+Z 
+"/>
+</vector>

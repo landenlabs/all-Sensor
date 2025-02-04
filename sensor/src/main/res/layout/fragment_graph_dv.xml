@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><!--
+  ~ Copyright (c) 2020 Dennis Lang (LanDen Labs) landenlabs@gmail.com
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the "Software"), to deal in the Software without restriction, including
+  ~ without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+  ~ following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  ~
+  ~ @author Dennis Lang
+  ~ @see http://LanDenLabs.com/
+  -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:orientation="vertical"
+    tools:context=".ui.graphs.GraphTHFragment">
+
+    <ScrollView
+        android:id="@+id/vscroller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <GridLayout
+                android:id="@+id/sensor_grid1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:alignmentMode="alignBounds"
+                android:background="#eee"
+                android:columnCount="2"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp">
+            </GridLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="10dp"
+                android:background="#333" />
+
+            <RelativeLayout
+                android:id="@+id/durationSB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#eee"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/byHour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="20dp"
+                    android:layout_toLeftOf="@+id/byDay"
+                    android:background="@drawable/round_border_transparent2"
+                    android:drawableLeft="@drawable/checkmark_sel"
+                    android:paddingEnd="5dp"
+                    android:text="@string/graph_byHour"
+                    android:textSize="18dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/byDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/round_border_transparent2"
+                    android:drawableLeft="@drawable/checkmark_sel"
+                    android:paddingEnd="5dp"
+                    android:text="@string/graph_byDay"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/unitTg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:checked="true"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:text="@string/graph_unitTg"
+                    android:textSize="18dp"
+                    app:drawableLeftCompat="@drawable/ic_more"
+                    app:drawableTint="#000" />
+
+                <TextView
+                    android:id="@+id/durationTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/byHour"
+                    android:layout_toRightOf="@+id/unitTg"
+                    android:autoSizeTextType="uniform"
+                    android:text="@string/graph_durationTitle"
+                    android:textSize="18sp" />
+
+                <SeekBar
+                    android:id="@+id/durationBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/durationTitle"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:max="14"
+                    android:maxHeight="20dp"
+                    android:min="1"
+                    android:padding="0dp"
+                    android:progress="2"
+                    android:progressDrawable="@drawable/duration_bar1" />
+
+                <TextView
+                    android:id="@+id/durationBarLbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ddf"
+                    android:elevation="10dp"
+                    android:foreground="@drawable/round_border_transparent2"
+                    android:textAllCaps="true"
+                    android:textSize="26dp"
+                    tools:text="34"
+                    tools:translationX="100dp"
+                    tools:translationY="-25dp" />
+            </RelativeLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                style="@style/ScrollTabStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#444"
+                android:visibility="gone"
+                app:tabGravity="fill"
+                app:tabIndicatorHeight="3dp">
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/days2Tb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/scr_hourly2"
+                    android:text="@string/graph_days2Tb" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/days7Tb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/scr_hourly7"
+                    android:text="@string/graph_days7Tb" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/mon1Tb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/scr_daily"
+                    android:text="@string/graph_mon1Tb" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/mon3Tb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/scr_daily3"
+                    android:text="@string/graph_mon3Tb" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#555">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/scr_fullscreen"
+                    app:tint="#fff" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/plot_value1_toggle"
+                    style="@style/showToggle"
+                    android:drawableLeft="@drawable/checkmark_sel"
+                    android:text="@string/graph_show_temperature"
+                    android:textColor="#0c0" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/plot_value2_toggle"
+                    style="@style/showToggle"
+                    android:drawableRight="@drawable/checkmark_sel"
+                    android:text="@string/graph_show_humidity"
+                    android:textColor="#6cf" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/mpchart"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="#222"
+                android:elevation="10dp"
+                android:paddingTop="10dp" />
+
+            <Space android:layout_height="50dp"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

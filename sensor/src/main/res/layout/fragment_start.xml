@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><!--
+  ~ Copyright (c) 2020 Dennis Lang (LanDen Labs) landenlabs@gmail.com
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the "Software"), to deal in the Software without restriction, including
+  ~ without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+  ~ following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  ~
+  ~ @author Dennis Lang
+  ~ @see http://LanDenLabs.com/
+  -->
+
+<!--
+ android:background="@drawable/sensor_bg"
+ -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.StartFragment"
+    tools:showIn="@layout/app_bar_main">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/sensor_bg"
+        android:scaleType="centerCrop"
+    />
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.StartFragment"
+    tools:showIn="@layout/app_bar_main">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+
+        >
+
+        <!--
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f0f0f0"
+            android:importantForAccessibility="no"
+            android:src="@drawable/sensor_bg" />
+            -->
+
+        <TextView
+            android:id="@+id/start_title"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_title" />
+
+        <ImageView
+            android:id="@+id/start_showAlarm"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_alignTop="@+id/start_title"
+            android:layout_alignBottom="@+id/start_title"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/round_border_transparent2"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:src="@drawable/ic_alarm" />
+
+        <ImageView
+            android:id="@+id/start_showMaxMin"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_alignTop="@+id/start_title"
+            android:layout_alignBottom="@+id/start_title"
+            android:layout_toLeftOf="@+id/start_showAlarm"
+            android:background="@drawable/round_border_transparent2"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:src="@drawable/ic_max_min" />
+
+        <ImageView
+            android:id="@+id/start_showTimeAge"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_alignTop="@+id/start_title"
+            android:layout_alignBottom="@+id/start_title"
+            android:layout_toLeftOf="@+id/start_showMaxMin"
+            android:background="@drawable/round_border_transparent2"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:src="@drawable/ic_date_range" />
+
+        <ImageView
+            android:id="@+id/start_graph"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_alignTop="@+id/start_title"
+            android:layout_alignBottom="@+id/start_title"
+            android:layout_toLeftOf="@+id/start_showTimeAge"
+            android:background="@drawable/round_border_transparent2"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:src="@drawable/ic_graph2" />
+
+        <ImageView
+            android:id="@+id/start_table"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_alignTop="@+id/start_title"
+            android:layout_alignBottom="@+id/start_title"
+            android:layout_toLeftOf="@+id/start_graph"
+            android:background="@drawable/round_border_transparent2"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:src="@drawable/ic_table" />
+
+        <!-- <androidx.viewpager2.widget.ViewPager2 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/start_card_holder"
+            android:orientation="horizontal"
+            app:layoutManager="LinearLayoutManager"
+            tools:listitem="@layout/card_tmp_hum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/start_title" />
+            <!--
+            Child:  <include layout="@layout/card_tmp_hum" />
+            -->
+        <ProgressBar
+            android:id="@+id/start_status_progress2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            android:layout_alignStart="@+id/start_card_holder"
+            android:layout_alignEnd="@+id/start_card_holder"
+            android:layout_alignTop="@+id/start_card_holder"
+            android:layout_alignBottom="@+id/start_card_holder"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/start_net_settings"
+            style="@style/textLink16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/start_card_holder"
+            tools:text="Open Network settings" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/start_graph_sensor_page"
+            android:layout_below="@+id/start_net_settings"
+            android:layout_marginLeft="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- Dummy sample
+            <TextView
+                style="@style/textLink20"
+                tools:text="@string/start_graph_sensor_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            -->
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <TextView
+            android:id="@+id/start_graph_device_page"
+            style="@style/textLink20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/start_graph_sensor_page"
+            tools:text="@string/start_graph_th_page" />
+
+        <TextView
+            android:id="@+id/start_table_page"
+            style="@style/textLink20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/start_graph_device_page"
+            tools:text="@string/start_table_page" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/start_table_page"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#000" />
+
+        <ImageView
+            android:id="@+id/progress_scale_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_alignTop="@+id/start_progress_title"
+            android:layout_alignBottom="@+id/start_progress_title"
+            android:src="@drawable/scr_open" />
+
+        <TextView
+            android:id="@+id/start_progress_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divider2"
+            android:layout_toRightOf="@+id/progress_scale_btn"
+            android:text="@string/start_progress_title"
+            android:textSize="18sp" />
+
+        <SeekBar
+            android:id="@+id/start_status_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/start_progress_title"
+            android:indeterminate="false"
+            android:indeterminateDrawable="@drawable/duration_bar1"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/duration_bar1"
+            android:secondaryProgress="0" />
+
+        <TextView
+            android:id="@+id/start_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/start_status_progress"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_border_transparent2"
+            android:padding="10dp"
+            android:text="@string/start_status"
+            android:visibility="visible" />
+
+        <!-- Filler coordinator_layout is not scrolling correctly -->
+        <TextView
+            android:id="@+id/start_bottom_status"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/start_status"
+            android:text="@string/start_bottom_status"
+            android:textSize="32sp" />
+
+    </RelativeLayout>
+</ScrollView>
+</RelativeLayout>

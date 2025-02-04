@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--
+  ~ Copyright (c) 2020 Dennis Lang (LanDen Labs) landenlabs@gmail.com
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the "Software"), to deal in the Software without restriction, including
+  ~ without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+  ~ following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  ~
+  ~ @author Dennis Lang
+  ~ @see http://LanDenLabs.com/
+  -->
+
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/nav_start">
+
+    <!--
+        id must match entry in main_drawer !!
+        label must match entry in main_drawer !!
+    -->
+    <fragment
+        android:id="@+id/nav_start"
+        android:name="com.landenlabs.all_sensor.ui.StartFragment"
+        android:label="@string/menu_start"
+        android:configChanges="orientation"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_id"
+            app:destination="@id/nav_graph_dv" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_graph_dv"
+        android:name="com.landenlabs.all_sensor.ui.graphs.GraphTHFragment"
+        android:label="@string/menu_graph_dv"
+        tools:layout="@layout/fragment_graph_dv" >
+        <action
+            app:popUpTo="@+id/nav_start"
+            android:id="@+id/action_id"
+            app:destination="@id/nav_graph_sn" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_graph_sn"
+        android:name="com.landenlabs.all_sensor.ui.graphs.GraphPFragment"
+        android:label="@string/menu_graph_sn"
+        tools:layout="@layout/fragment_graph_sn" >
+        <!-- Does not work here
+        <android:tag android:id="@id/SensorName" android:value="Pressure" />
+        -->
+        <argument
+            android:name="SensorName"
+            app:argType="string"
+            android:defaultValue="Pressure"/>
+        <action
+            app:popUpTo="@+id/nav_graph_dv"
+            android:id="@+id/action_id"
+            app:destination="@id/nav_table" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_graph_wifi"
+        android:name="com.landenlabs.all_sensor.ui.graphs.GraphPFragment"
+        android:label="@string/menu_graph_wifi"
+        tools:layout="@layout/fragment_graph_sn" >
+        <!-- Does not work here
+        <android:tag android:id="@id/SensorName" android:value="Pressure" />
+        -->
+        <argument
+            android:name="SensorName"
+            app:argType="string"
+            android:defaultValue="WiFi"/>
+        <action
+            app:popUpTo="@+id/nav_graph_dv"
+            android:id="@+id/action_id"
+            app:destination="@id/nav_table" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_graph_battery"
+        android:name="com.landenlabs.all_sensor.ui.graphs.GraphPFragment"
+        android:label="@string/menu_graph_battery"
+        tools:layout="@layout/fragment_graph_sn" >
+        <!-- Does not work here
+        <android:tag android:id="@id/SensorName" android:value="Pressure" />
+        -->
+        <argument
+            android:name="SensorName"
+            app:argType="string"
+            android:defaultValue="Battery"/>
+        <action
+            app:popUpTo="@+id/nav_graph_dv"
+            android:id="@+id/action_id"
+            app:destination="@id/nav_table" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_table"
+        android:name="com.landenlabs.all_sensor.ui.TableFragment"
+        android:label="@string/menu_table"
+        tools:layout="@layout/fragment_table" >
+        <action
+            app:popUpTo="@+id/nav_graph_sn"
+            android:id="@+id/action_id"
+            app:destination="@id/nav_logvwr" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_logvwr"
+        android:name="com.landenlabs.all_sensor.ui.LogViewFragment"
+        android:label="@string/menu_logvwr"
+        tools:layout="@layout/fragment_logvwr" >
+        <action
+            android:id="@+id/action_id"
+            app:popUpTo="@+id/nav_start" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_cfg"
+        android:name="com.landenlabs.all_sensor.ui.CfgFragment"
+        android:label="@string/menu_cfg"
+        tools:layout="@layout/fragment_cfg" >
+        <action
+            android:id="@+id/action_id"
+            app:popUpTo="@+id/nav_start" />
+    </fragment>
+</navigation>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020 Dennis Lang (LanDen Labs) landenlabs@gmail.com
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the "Software"), to deal in the Software without restriction, including
+  ~ without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+  ~ following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  ~
+  ~ @author Dennis Lang
+  ~ @see http://LanDenLabs.com/
+  -->
+
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="lollipop">
+
+    <item
+        android:id="@+id/checkpath_on"
+        android:drawable="@drawable/checkpath_on"
+        android:state_checked="true" />
+
+    <item
+        android:id="@+id/checkpath_sel"
+        android:drawable="@drawable/checkpath_on"
+        android:state_selected="true" />
+
+    <item
+        android:id="@+id/checkpath_off"
+        android:drawable="@drawable/checkpath_off" />
+
+    <transition
+        android:drawable="@drawable/checkpath_to_on_avd"
+        android:fromId="@id/checkpath_off"
+        android:toId="@id/checkpath_on" />
+
+    <transition
+        android:drawable="@drawable/checkpath_to_off_avd"
+        android:fromId="@id/checkpath_on"
+        android:toId="@id/checkpath_off" />
+
+    <transition
+        android:drawable="@drawable/checkpath_to_on_avd"
+        android:fromId="@id/checkpath_off"
+        android:toId="@id/checkpath_sel" />
+
+    <transition
+        android:drawable="@drawable/checkpath_to_off_avd"
+        android:fromId="@id/checkpath_sel"
+        android:toId="@id/checkpath_off" />
+</animated-selector>

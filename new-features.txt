@@ -1,0 +1,37 @@
+
+
+all-sensor 
+
+Bugs/work to do:
+   * why does cfg page not scroll, unless you scroll account list
+   * cleanup cfg page
+   * try and fix trend not always appearing in widget
+   * work on google sheet and export to dropbox
+   * list not working in tabular widget
+   * expand pressure DB to incude battery, wifi, cellular
+   * Add warning on Widget when network if OFFLINE
+   * show optional Pressure and change on home page
+   * remove pressure from notification if not available.
+   
+New Features
+   * add GPS tracker (capture GPS location with sensor fetch, plot on map, table, dist graph, etc)
+   * add temperature device tracker
+   * add light sensor tracker
+   * add sound sensor tracker
+   * add comments to all-sensor to mark events, indoor, upstairs, outside, etc
+   * clean up notification draw entry.
+   * add optional status bar current temperature and/or humidity
+   * export page, use table page, add date range filter, option to export as CSV email, or to sheet, or dropbox, etc
+   
+   * Add webpage in about/more menu to show other ALL apps, customize per app
+       So we can update page, add links to playstore, etc
+          landenlabs.com/all/sensor.html
+          landenlabs.com/all/devtool.html
+          ...
+      
+   * Add welcome splash screen, or interstitial like page with new app updates, etc. 
+   
+   * Integrate govee with WxUnderground 
+        https://support.weather.com/s/article/PWS-Upload-Protocol?language=en_US
+        http://www.jerjanb.net/wu-upload/
+   

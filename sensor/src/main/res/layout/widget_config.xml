@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><!--
+  ~ Copyright (c) 2020 Dennis Lang (LanDen Labs) landenlabs@gmail.com
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the "Software"), to deal in the Software without restriction, including
+  ~ without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+  ~ following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  ~
+  ~ @author Dennis Lang
+  ~ @see http://LanDenLabs.com/
+  -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@drawable/round_border_thin1"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/wid_cfg_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/wid_cfg_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/wid_cfg_icon"
+        android:layout_marginStart="20dp"
+        android:layout_toRightOf="@+id/wid_cfg_icon"
+        android:text="@string/wid_cfg_title"
+        android:textColor="#000"
+        android:textSize="28dp" />
+
+    <TextView
+        android:id="@+id/wid_cfg_device_list_lbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wid_cfg_title"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:labelFor="@+id/wid_cfg_device_list"
+        android:text="Device:"
+        android:textColor="#000"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/wid_cfg_device_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wid_cfg_title"
+        android:layout_alignBaseline="@+id/wid_cfg_device_list_lbl"
+        android:layout_toRightOf="@+id/wid_cfg_device_list_lbl"
+        android:background="@drawable/round_border_transparent2"
+        android:padding="5dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:theme="@style/CfgDeviceSpinnerTheme"
+        android:tooltipText="device name"
+        tools:entries="@array/testArray" />
+
+    <CheckBox
+        android:id="@+id/wid_cfg_show_name"
+        style="@style/wid_cfg_cb"
+        android:layout_below="@+id/wid_cfg_device_list_lbl"
+        android:text="@string/wid_cfg_show_name" />
+
+    <TextView
+        android:id="@+id/wid_cfg_title_lbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wid_cfg_show_name"
+        android:layout_marginEnd="10dp"
+        android:text="@string/wid_cfg_title_lbl"
+        android:textColor="#000"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/wid_cfg_wid_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wid_cfg_show_name"
+        android:layout_toRightOf="@+id/wid_cfg_title_lbl"
+        android:background="@drawable/round_border_transparent2"
+        android:hint="@string/wid_cfg_wid_title_hint"
+        android:inputType="textVisiblePassword"
+        android:minHeight="0dp"
+        android:padding="5dp"
+        android:textColor="#000"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/wid_cfg_show_time"
+        style="@style/wid_cfg_cb"
+        android:layout_below="@+id/wid_cfg_title_lbl"
+        android:text="@string/wid_cfg_show_time" />
+
+    <ScrollView
+        android:id="@+id/wid_cfg_show_cblist"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_below="@+id/wid_cfg_show_time"
+        android:background="@drawable/round_border_thin1"
+        android:fadingEdge="vertical"
+        android:paddingEnd="6dp"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:scrollbarDefaultDelayBeforeFade="65000"
+        android:scrollbarSize="6dp"
+        android:scrollbarStyle="insideInset"
+        android:scrollbarThumbVertical="@color/wid_cfg_sb">
+
+        <LinearLayout
+            android:id="@+id/wid_cfg_show_cb_holder"
+            android:layout_marginStart="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/wid_cfg_show_temp"
+                style="@style/wid_cfg_cb"
+                android:text="@string/wid_cfg_show_temp" />
+
+            <CheckBox
+                android:id="@+id/wid_cfg_show_hum"
+                style="@style/wid_cfg_cb"
+                android:text="@string/wid_cfg_show_hum" />
+
+            <CheckBox
+                android:id="@+id/wid_cfg_show_press"
+                style="@style/wid_cfg_cb"
+                android:checked="false"
+                android:text="@string/wid_cfg_show_press" />
+
+            <CheckBox
+                android:id="@+id/wid_cfg_show_wifi"
+                style="@style/wid_cfg_cb"
+                android:checked="false"
+                android:text="@string/wid_cfg_show_wifi" />
+
+            <CheckBox
+                android:id="@+id/wid_cfg_show_cell"
+                style="@style/wid_cfg_cb"
+                android:checked="false"
+                android:text="@string/wid_cfg_show_cell" />
+
+            <CheckBox
+                android:id="@+id/wid_cfg_show_bat"
+                style="@style/wid_cfg_cb"
+                android:checked="false"
+                android:text="@string/wid_cfg_show_bat" />
+
+            <CheckBox
+                android:id="@+id/wid_cfg_show_gps"
+                style="@style/wid_cfg_cb"
+                android:checked="false"
+                android:text="@string/wid_cfg_show_gps" />
+            <CheckBox
+                android:id="@+id/wid_cfg_show_elev"
+                style="@style/wid_cfg_cb"
+                android:checked="false"
+                android:text="@string/wid_cfg_show_elev" />
+            <CheckBox
+                android:id="@+id/wid_cfg_show_spd"
+                style="@style/wid_cfg_cb"
+                android:checked="false"
+                android:text="@string/wid_cfg_show_spd" />
+            <CheckBox
+                android:id="@+id/wid_cfg_show_light"
+                style="@style/wid_cfg_cb"
+                android:checked="false"
+                android:text="@string/wid_cfg_show_light" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <CheckBox
+        android:id="@+id/wid_cfg_show_as_graph"
+        style="@style/wid_cfg_cb"
+        android:layout_below="@+id/wid_cfg_show_cblist"
+        android:checked="false"
+        android:text="@string/wid_cfg_show_as_graph" />
+
+    <CheckBox
+        android:id="@+id/wid_cfg_show_trend"
+        style="@style/wid_cfg_cb"
+        android:layout_below="@+id/wid_cfg_show_as_graph"
+        android:text="@string/wid_cfg_show_trend"
+       />
+
+    <CheckBox
+        android:id="@+id/wid_cfg_show_his"
+        style="@style/wid_cfg_cb"
+        android:layout_below="@+id/wid_cfg_show_trend"
+        android:text="@string/wid_cfg_show_his" />
+
+    <Space
+        android:id="@+id/divider3"
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:layout_below="@+id/wid_cfg_show_his"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/wid_cfg_temp_unit_f"
+        style="@style/showToggle"
+        android:layout_below="@+id/divider3"
+        android:drawableLeft="@drawable/checkmark_sel"
+        android:text="@string/wid_cfg_temp_unit_f"
+        android:textColor="#000" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/wid_cfg_temp_unit_c"
+        style="@style/showToggle"
+        android:layout_below="@+id/divider3"
+        android:layout_toRightOf="@+id/wid_cfg_temp_unit_f"
+        android:drawableLeft="@drawable/checkmark_sel"
+        android:text="@string/wid_cfg_temp_unit_c"
+        android:textColor="#000" />
+
+    <Space
+        android:id="@+id/divider4"
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:layout_below="@+id/wid_cfg_temp_unit_f"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/wid_cfg_save_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider4"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/round_border_btn1"
+        android:padding="5dp"
+        android:text="@string/wid_cfg_save_settings"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/wid_cfg_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider4"
+        android:layout_toRightOf="@+id/wid_cfg_save_settings"
+        android:background="@drawable/round_border_btn1"
+        android:padding="5dp"
+        android:text="@string/wid_cfg_setupWidget"
+        android:textColor="#000" />
+</RelativeLayout>

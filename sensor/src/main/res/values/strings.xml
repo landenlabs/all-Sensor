@@ -1,0 +1,122 @@
+<!--
+  ~ Copyright (c) 2020 Dennis Lang (LanDen Labs) landenlabs@gmail.com
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the "Software"), to deal in the Software without restriction, including
+  ~ without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+  ~ following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  ~
+  ~ @author Dennis Lang
+  ~ @see http://LanDenLabs.com/
+  -->
+
+<resources>
+    <string name="app_name">all Sensor</string>
+    <string name="cfg_list1_name">Cfg Banner Sensor</string>
+    <string name="cfg_list2_name">Cfg List Sensor</string>
+    <string name="cfg_page_name">Cfg Page Sensor</string>
+    <string name="email">LanDenLabs.app@gmail.com</string>
+
+    <!-- NOT USED
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    -->
+    <string name="nav_header_title">@string/app_name</string>
+    <string name="nav_header_subtitle">@string/email</string>
+    <string name="nav_header_desc">Logo for All Sensor</string>
+
+    <string name="menu_about">About</string>
+
+    <string name="menu_maintenance">Maintenance</string>
+    <string name="menu_maint_rebuild_daily">Rebuild Daily Db</string>
+
+    <string name="menu_log">Log </string>
+    <string name="menu_enable_log_cb">Enable Log </string>
+    <string name="menu_show_log">Show Log</string>
+    <string name="menu_delete_log">Delete Log</string>
+
+    <string name="menu_sys">System</string>
+    <string name="menu_sys_net">Network Settings</string>
+    <string name="menu_sys_app">App Settings</string>
+
+    <string name="menu_table">Tabular Datar</string>
+    <string name="menu_start">Start</string>
+    <string name="menu_status_a">Graph Device (A)</string>
+    <string name="menu_graph_dv">Graph Device</string>
+    <string name="menu_graph_sn">Graph Sensor</string>
+    <string name="menu_graph_wifi">Graph WiFi</string>
+    <string name="menu_graph_battery">Graph Battery</string>
+    <string name="menu_logvwr">Log Viewer</string>
+    <string name="menu_cfg">Configuration</string>
+
+    <string name="start_graph_sensor_page">Graph - Sensor %1$s</string>
+    <string name="start_graph_sensor_link">Graph</string>
+    <string name="start_graph_th_page">Graph - Device Temp,Hum</string>
+    <string name="start_graph_th_link">Graph</string>
+    <string name="start_table_page">Hourly Table - View/Export</string>
+    <string name="start_table_link">Hourly Table</string>
+
+    <string name="durationFmt">%1$d by </string>
+
+    <string name="app_title">All Sensor</string>
+    <string name="sensor_a_title">Sensors</string>
+
+    <string name="net_settings_page">Adjust Network Settings</string>
+    <string name="net_settings_link">Adjust Network Settings</string>
+    <string name="about_desc">All-Sensor\n
+        A LanDen Labs App\n
+        https://landenlabs.com\n
+        <b>By: Dennis Lang</b>\n
+        \n
+        Weather Sensor App\n Govee Wifi sensor\n
+        \n
+        <b>Websites:</b>\n
+        * Home page:\n
+          https://landenlabs.com  \n
+        * Salem NH sensor:\n
+          https://landenlabs.com/cgi-bin/get-wxm1.pl \n
+        \n
+    </string>
+
+    <string name="no_network">No Network</string>
+    <string name="no_data">No Data</string>
+
+    <string name="status_last">Last:</string>
+    <string name="status_temperature">Temp(°F):</string>
+    <string name="status_humidity">Humidity:</string>
+    <string name="status_battery">Battery:</string>
+    <string name="status_version">Version:</string>
+    <string name="status_version_value">sV%1$s hV%2$s</string>
+    <string name="status_temp_fmt">%1$s°F </string>
+    <string name="sensor_summary">%1$s %2$s at %3$s</string>
+    <string name="statusTitle">Download  %1$d%%  elapsed %2$d (sec)</string>
+
+    <string name="widget_name1">Sensor Banner</string>
+    <string name="widget_name2">Sensor Table</string>
+    <string name="widget_name3">Sensor Big</string>
+
+    <string name="start_tem_minmax">24hr:\nMin %1$s\nMax: %2$s</string>
+    <string name="start_hum_minmax">24hr:\nMin %1$s\nMax: %2$s</string>
+
+    <string name="start_tem_alarm">Alarm:\nMin %1$s\nMax: %2$s</string>
+    <string name="start_hum_alarm">Alarm:\nMin %1$s\nMax: %2$s</string>
+    <string name="start_battery">Battery:%1$d  WiFi:%2$d</string>
+    <plurals name="start_minAgo">
+        <item quantity="one">(%d min ago)</item>
+        <item quantity="other">(%d mins ago)</item>
+    </plurals>
+    <string name="start_hrAgo">(%1$.2f hr ago</string>
+    <string name="status_updating">Updating...</string>
+
+    <string name="intervalHint">Interval hours</string>
+
+</resources>

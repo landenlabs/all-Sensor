@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Nest shape in layer-list to add padding -->
+    <!--
+     android:bottom="8dp"
+        android:left="8dp"
+        android:right="8dp"
+        android:top="8dp"
+     -->
+    <item>
+
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp" />
+            <stroke
+                android:width="1px"
+                android:color="#444" />
+        </shape>
+    </item>
+
+</layer-list>

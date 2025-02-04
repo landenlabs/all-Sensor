@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><!--
+  ~ Copyright (c) 2020 Dennis Lang (LanDen Labs) landenlabs@gmail.com
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the "Software"), to deal in the Software without restriction, including
+  ~ without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+  ~ following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  ~
+  ~ @author Dennis Lang
+  ~ @see http://LanDenLabs.com/
+  -->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sensor_bg"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        tools:context=".ui.CfgFragment">
+
+        <TextView
+            android:id="@+id/app_cfg_title"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_cfg_dev_accounts" />
+
+        <TextView
+            android:id="@+id/app_cfg_user_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_cfg_title"
+            android:labelFor="@+id/app_cfg_user"
+            android:text="User:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/app_cfg_user"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/app_cfg_user_lbl"
+            android:layout_toLeftOf="@+id/app_cfg_user_action"
+            android:layout_toRightOf="@+id/app_cfg_user_lbl"
+            android:autofillHints="Govee account email"
+            android:background="#e0e0e0"
+            android:inputType="textEmailAddress"
+            android:textSize="18sp" />
+
+        <!-- Add or delete -->
+        <TextView
+            android:id="@+id/app_cfg_user_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_cfg_title"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/round_border_btn1"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="+ Add"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/app_cfg_pwd_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_cfg_user"
+            android:layout_marginTop="5dp"
+            android:labelFor="@+id/app_cfg_pwd"
+            android:text="Pwd:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/app_cfg_pwd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/app_cfg_pwd_lbl"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/app_cfg_pwd_lbl"
+            android:autofillHints="Govee password"
+            android:background="#e0e0e0"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/app_cfg_list_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_cfg_pwd"
+            android:gravity="center"
+            android:text="Accounts"
+            android:textColor="#00f"
+            android:textSize="20sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/app_cfg_user_list"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/app_cfg_list_title"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/round_border_white_bg"
+            android:padding="5dp" />
+
+        <View
+            android:id="@+id/app_cfg_divider1"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/app_cfg_user_list"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#222" />
+
+
+        <TextView
+            android:id="@+id/app_cfg_device_list_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_cfg_divider1"
+            android:layout_marginStart="10dp"
+            android:text="Device:"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/app_cfg_device_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_cfg_divider1"
+            android:layout_toRightOf="@+id/app_cfg_device_list_lbl"
+            android:background="@drawable/round_border_transparent2"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/app_cfg_divider3"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/app_cfg_device_list_lbl"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#000" />
+
+        <TextView
+            android:id="@+id/app_cfg_title2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/app_cfg_divider3"
+            android:layout_marginBottom="5dp"
+            android:text="Global Settings:"
+            android:textColor="#000"
+            android:textSize="20dp" />
+
+        <View
+            android:id="@+id/app_cfg_center1"
+            android:layout_width="20dp"
+            android:layout_height="1px"
+            android:layout_below="@+id/app_cfg_title2"
+            android:layout_centerHorizontal="true" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/app_cfg_temp_unit_f"
+            style="@style/showToggle"
+            android:layout_below="@+id/app_cfg_title2"
+            android:layout_toLeftOf="@id/app_cfg_center1"
+            android:drawableLeft="@drawable/checkmark_sel"
+            android:text="@string/app_cfg_temp_unit_f"
+            android:textColor="#000" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/app_cfg_temp_unit_c"
+            style="@style/showToggle"
+            android:layout_below="@+id/app_cfg_title2"
+            android:layout_toRightOf="@+id/app_cfg_center1"
+            android:drawableLeft="@drawable/checkmark_sel"
+            android:text="@string/app_cfg_temp_unit_c"
+            android:textColor="#000" />
+
+        <CheckBox
+            android:id="@+id/app_cfg_show_notification"
+            style="@style/wid_cfg_cb"
+            android:layout_below="@+id/app_cfg_temp_unit_f"
+            android:text="@string/app_cfg_notification" />
+
+        <CheckBox
+            android:id="@+id/app_cfg_show_status"
+            style="@style/wid_cfg_cb"
+            android:layout_below="@+id/app_cfg_show_notification"
+            android:text="@string/app_cfg_show_status" />
+
+        <CheckBox
+            android:id="@+id/app_cfg_sound_on_update"
+            style="@style/wid_cfg_cb"
+            android:layout_below="@+id/app_cfg_show_status"
+            android:text="@string/app_cfg_sound_on_update" />
+
+        <TextView
+            android:layout_below="@+id/app_cfg_sensor_holder"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text=" " />
+
+        <GridLayout
+            android:columnCount="2"
+            android:id="@+id/app_cfg_sensor_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_cfg_sound_on_update"
+            android:layout_alignBaseline="@+id/app_cfg_sensor_holder_title"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_border_transparent2" >
+
+            <CheckBox
+                android:id="@+id/app_cfg_sensor_pressure"
+                style="@style/wid_cfg_cb"
+                android:text="@string/app_cfg_sensor_pressure" />
+
+            <com.landenlabs.all_sensor.ui.view.ComboBox
+                android:id="@+id/app_cfg_press_interval"
+                style="@style/wid_cfg_int" />
+
+            <CheckBox
+                android:id="@+id/app_cfg_sensor_battery"
+                style="@style/wid_cfg_cb"
+                android:text="Battery" />
+
+            <com.landenlabs.all_sensor.ui.view.ComboBox
+                android:id="@+id/app_cfg_battery_interval"
+                style="@style/wid_cfg_int" />
+
+            <CheckBox
+                android:id="@+id/app_cfg_sensor_wifi"
+                style="@style/wid_cfg_cb"
+                android:text="wifi" />
+
+            <com.landenlabs.all_sensor.ui.view.ComboBox
+                android:id="@+id/app_cfg_wifi_interval"
+                style="@style/wid_cfg_int" />
+
+            <CheckBox
+                android:id="@+id/app_cfg_sensor_cell"
+                style="@style/wid_cfg_cb"
+                android:text="cellular" />
+
+            <com.landenlabs.all_sensor.ui.view.ComboBox
+                android:id="@+id/app_cfg_cell_interval"
+                style="@style/wid_cfg_int" />
+
+            <CheckBox
+                android:id="@+id/app_cfg_sensor_gps"
+                style="@style/wid_cfg_cb"
+                android:text="GPS location" />
+
+            <com.landenlabs.all_sensor.ui.view.ComboBox
+                android:id="@+id/app_cfg_gps_interval"
+                style="@style/wid_cfg_int" />
+
+            <CheckBox
+                android:id="@+id/app_cfg_sensor_elev"
+                style="@style/wid_cfg_cb"
+                android:text="Elevation" />
+
+            <com.landenlabs.all_sensor.ui.view.ComboBox
+                android:id="@+id/app_cfg_elev_interval"
+                style="@style/wid_cfg_int" />
+
+            <CheckBox
+                android:id="@+id/app_cfg_sensor_spd"
+                style="@style/wid_cfg_cb"
+                android:text="Speed" />
+
+            <com.landenlabs.all_sensor.ui.view.ComboBox
+                android:id="@+id/app_cfg_spd_interval"
+                style="@style/wid_cfg_int" />
+
+            <CheckBox
+                android:id="@+id/app_cfg_sensor_light"
+                style="@style/wid_cfg_cb"
+                android:text="Light" />
+
+            <com.landenlabs.all_sensor.ui.view.ComboBox
+                android:id="@+id/app_cfg_light_interval"
+                style="@style/wid_cfg_int" />
+
+            <CheckBox
+                android:id="@+id/app_cfg_sensor_snd"
+                style="@style/wid_cfg_cb"
+                android:text="Sound" />
+
+            <com.landenlabs.all_sensor.ui.view.ComboBox
+                android:id="@+id/app_cfg_snd_interval"
+                style="@style/wid_cfg_int" />
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/app_cfg_sensor_holder_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_cfg_sound_on_update"
+            android:gravity="center_horizontal"
+            android:text="Sensors"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+</ScrollView>

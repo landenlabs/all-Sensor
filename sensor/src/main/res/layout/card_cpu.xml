@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2021 Dennis Lang (LanDen Labs) landenlabs@gmail.com
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the "Software"), to deal in the Software without restriction, including
+  ~ without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+  ~ following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  ~ NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  ~
+  ~ @author Dennis Lang
+  ~ @see http://LanDenLabs.com/
+  -->
+
+<!--
+    tools:showIn="@layout/fragment_start"
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_tmp_hum_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_border_btn1"
+    >
+
+    <TextView
+        android:id="@+id/temp_lbl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/card_tem_cpu_lbl"
+        android:textColor="@color/temRed"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/hum_lbl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/card_tem_bat_lbl"
+        android:textColor="@color/humBlue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/temp_lbl"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+
+    <TextView
+        android:id="@+id/card_tem_cpu_value"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:lines="1"
+        android:text="@string/card_tem_val"
+        android:textColor="@color/temRed"
+        android:textSize="30sp"
+        app:autoSizeMaxTextSize="200sp"
+        app:autoSizeMinTextSize="40sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintDimensionRatio="W,1:3"
+        app:layout_constraintLeft_toLeftOf="@+id/temp_lbl"
+        app:layout_constraintRight_toRightOf="@+id/temp_lbl"
+        app:layout_constraintTop_toBottomOf="@+id/temp_lbl" />
+
+    <TextView
+        android:id="@+id/card_tem_bat_value"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:gravity="center"
+        android:lines="1"
+        android:text="@string/card_tem_val"
+        android:textColor="@color/humBlue"
+        android:textSize="30sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintDimensionRatio="W,1:3"
+        app:layout_constraintLeft_toLeftOf="@+id/hum_lbl"
+        app:layout_constraintRight_toRightOf="@+id/hum_lbl"
+        app:layout_constraintTop_toBottomOf="@+id/hum_lbl" />
+
+    <TextView
+        android:id="@+id/card_cpu_trend"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/temRed"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@+id/temp_lbl"
+        app:layout_constraintRight_toRightOf="@+id/temp_lbl"
+        app:layout_constraintTop_toBottomOf="@+id/card_tem_cpu_value"
+        tools:text="@string/card_temp_trend" />
+
+    <TextView
+        android:id="@+id/card_bat_trend"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/humBlue"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@+id/hum_lbl"
+        app:layout_constraintRight_toRightOf="@+id/hum_lbl"
+        app:layout_constraintTop_toBottomOf="@+id/card_tem_bat_value"
+        tools:text="@string/card_hum_trend" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/trend_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="card_cpu_trend,card_bat_trend" />
+
+    <TextView
+        android:id="@+id/card_lastTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/card_please_wait"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/trend_barrier" />
+
+    <TextView
+        android:id="@+id/card_battery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/card_lastTime"
+        tools:text="Battery:70%  WiFi: 100%" />
+
+    <TextView
+        android:id="@+id/card_cpu_min_max"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/temRed"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="@+id/temp_lbl"
+        app:layout_constraintRight_toRightOf="@+id/temp_lbl"
+        app:layout_constraintTop_toBottomOf="@+id/card_battery"
+        tools:text="Day\nMin: xx°F\nMax: xx°F" />
+
+    <TextView
+        android:id="@+id/card_cpu_alarm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/temRed"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@+id/temp_lbl"
+        app:layout_constraintRight_toRightOf="@+id/temp_lbl"
+        app:layout_constraintTop_toBottomOf="@+id/card_cpu_min_max"
+        tools:text="Alarm\nMin: xx°F\nMax: xx°F" />
+
+    <TextView
+        android:id="@+id/card_bat_min_max"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/humBlue"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="@+id/hum_lbl"
+        app:layout_constraintRight_toRightOf="@+id/hum_lbl"
+        app:layout_constraintTop_toBottomOf="@+id/card_battery"
+        tools:text="Day\nMin: xx%\nMax: xx%" />
+
+    <TextView
+        android:id="@+id/card_bat_alarm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/humBlue"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@+id/hum_lbl"
+        app:layout_constraintRight_toRightOf="@+id/hum_lbl"
+        app:layout_constraintTop_toBottomOf="@+id/card_bat_min_max"
+        tools:text="Alarm\nMin: xx%\nMax: xx%" />
+
+    <TextView
+        android:id="@+id/card_dev_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="90"
+        android:text="Cpu, Battery"
+        android:textColor="@android:color/black"
+        android:transformPivotX="20dp"
+        android:transformPivotY="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

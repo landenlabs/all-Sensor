@@ -1,0 +1,54 @@
+// all-sensor
+// Project (top-level) build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        // https://developer.android.com/studio/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle
+        // https://mvnrepository.com/artifact/com.android.tools.build/gradle?repo=google
+        classpath 'com.android.tools.build:gradle:8.5.0'
+
+        // For kotlin plugins
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.22")
+
+        // Firebase
+        classpath 'com.google.gms:google-services:4.4.2'
+
+        // https://github.com/it-objects/android-string-extractor-plugin
+        //
+        //  ./gradlew extractStringsFromLayouts
+        //
+        // plugin to extract hardcoded strings
+        // uncomment "apply plugin: 'android-string-extractor'" in app gradle file.
+        // classpath files('/Users/dennislang/opt/android/tools/androidLayoutStringExtractor-0.1.1.jar')
+
+        // https://github.com/vanniktech/gradle-dependency-graph-generator-plugin
+        // classpath "com.vanniktech:gradle-dependency-graph-generator-plugin:0.7.0"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        // jcenter required for figlib-1.0.7
+        // jcenter()   // Readonly as of March 31, 2021 - switch to mavenCentral
+    }
+
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile).tap {
+            configureEach {
+                // Enable verbose lint reporting during build.
+                options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+            }
+        }
+    }
+}
+
+tasks.register('clean', Delete) {
+    delete layout.buildDirectory
+}
