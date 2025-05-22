@@ -33,8 +33,12 @@ android {
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
         buildConfigField "long", "BuildTimeMilli", System.currentTimeMillis() + "L"
-        buildConfigField "String", "GoveeUser1", "\"${GoveeUser1}\""
-        buildConfigField "String", "GoveePwd1", "\"${GoveePwd1}\""
+        // TODO - load use/pwd from local.properties
+        // buildConfigField "String", "GoveeUser1", "\"${GoveeUser1}\""
+        // buildConfigField "String", "GoveePwd1", "\"${GoveePwd1}\""
+
+        buildConfigField "String", "GoveeUser1", "\"test\""
+        buildConfigField "String", "GoveePwd1", "\"test\""
     }
 
     // Save app version in string so resource can be used in layouts
@@ -42,6 +46,9 @@ android {
     applicationVariants.configureEach { variant ->
         variant.resValue "string", "versionName", "v" + variant.versionName
     }
+
+
+    buildFeatures.buildConfig = true
 
     buildTypes {
         release {
