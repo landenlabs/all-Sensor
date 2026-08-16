@@ -19,16 +19,16 @@ android {
         }
     }
 
-    compileSdk  34
-    namespace "com.landenlabs.all_sensor"
+    compileSdk = 34
+    namespace = "com.landenlabs.all_sensor"
 
     defaultConfig {
-        applicationId "com.landenlabs.all_sensor"
-        minSdkVersion 23
-        targetSdkVersion 34
+        applicationId = "com.landenlabs.all_sensor"
+        minSdk = 23
+        targetSdk = 34
 
-        versionCode 40801
-        versionName '4.08.01'
+        versionCode = 40801
+        versionName = '4.08.01'
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
@@ -39,28 +39,28 @@ android {
 
         buildConfigField "String", "GoveeUser1", "\"test\""
         buildConfigField "String", "GoveePwd1", "\"test\""
+
+        // Save app version in string so resource can be used in layouts
+        // BuildConfig.VERSION_NAME already has version
+        resValue "string", "versionName", "v" + versionName
     }
 
-    // Save app version in string so resource can be used in layouts
-    // BuildConfig.VERSION_NAME already has version
-    applicationVariants.configureEach { variant ->
-        variant.resValue "string", "versionName", "v" + variant.versionName
+    buildFeatures {
+        buildConfig = true
+        resValues = true
     }
-
-
-    buildFeatures.buildConfig = true
 
     buildTypes {
         release {
             // Enables code shrinking, obfuscation, and optimization.
-            minifyEnabled true
+            minifyEnabled = true
 
             // List of resources removed at end of generated mapping file:
             // grep unused ./app/build/outputs/mapping/demoRelease/resources.txt
-            shrinkResources true
+            shrinkResources = true
 
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            signingConfig = signingConfigs.release
         }
     }
 
@@ -197,12 +197,15 @@ dependencies {
 }
 
 // Rename app
-android.applicationVariants.configureEach { variant ->
-    variant.outputs.all {
+androidComponents {
+    onVariants(selector().all(), { variant ->
         def ourname = project.parent.name
-        outputFileName = "$ourname-${variant.name}-${variant.versionName}.apk"
-        println "out name= $outputFileName"
-    }
+        variant.outputs.forEach { output ->
+            def outputFileName = "$ourname-${variant.name}-${output.versionName.get()}.apk"
+            output.outputFileName.set(outputFileName)
+            println "out name= $outputFileName"
+        }
+    })
 }
 
 // ./gradlew extractStringsFromLayouts
